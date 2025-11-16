@@ -1,24 +1,16 @@
-# Stage 1: Build
-FROM node:18-bullseye AS build
-
+# build stage
+FROM public.ecr.aws/docker/library/node:18-alpine AS builder
 WORKDIR /app
-
-# Copy only package.json and package-lock.json first
-COPY app/frontend/package*.json ./
-
-# Install dependencies (including react-scripts)
-#RUN npm install
-
-# Copy source code
-COPY app/frontend ./
-
-# Build React app
-RUN npm run build
-
-# Stage 2: Production
-FROM nginx:stable
-
-COPY --from=build /app/build /usr/share/nginx/html
-
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+COPY package*.json ./
+RUN npm install
+COPY . .
+# RUN npm run build
+# production stage — serve built assets with lightweight server
+FROM public.ecr.aws/docker/library/node:18-alpine
+WORKDIR /app
+# install serve or use a minimal static server; here using serve
+RUN npm i -g serve
+COPY --from=builder /app/dist ./dist
+ENV PORT=3000
+EXPOSE 3000
+CMD ["sh", "-c", "serve -s dist -l 3000"]
