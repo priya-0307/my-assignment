@@ -7,7 +7,7 @@ WORKDIR /app
 COPY app/frontend/package*.json ./
 
 # Install dependencies (including react-scripts)
-RUN npm install
+#RUN npm install
 
 # Copy source code
 COPY app/frontend ./
