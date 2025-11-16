@@ -1,24 +1,23 @@
 # Stage 1: Build
-FROM node:18 AS build
+FROM node:18-bullseye AS build
 
 WORKDIR /app
 
-# Copy package.json and package-lock.json
-COPY package*.json ./
+# Copy only package.json and package-lock.json first
+COPY app/frontend/package*.json ./
 
-# Install dependencies
+# Install dependencies (including react-scripts)
 RUN npm install
 
 # Copy source code
-COPY app/ ./
+COPY app/frontend ./
 
 # Build React app
 RUN npm run build
 
-# Stage 2: Production - Nginx
-FROM nginx:alpine
+# Stage 2: Production
+FROM nginx:stable
 
-# Copy build output
 COPY --from=build /app/build /usr/share/nginx/html
 
 EXPOSE 80
