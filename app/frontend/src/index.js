@@ -1,14 +1,7 @@
 import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
 
 
-function App() {
-return (
-<div style={{ textAlign: "center", marginTop: "40px", fontFamily: "Arial" }}>
-<h1>React App Running in Docker + Nginx</h1>
-<p>This app was built using the multi-stage Dockerfile you provided.</p>
-</div>
-);
-}
-
-
-export default App;
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<App />);
