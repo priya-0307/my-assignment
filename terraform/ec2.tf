@@ -5,7 +5,7 @@ resource "aws_instance" "web1" {
  
 
   tags = {
-    Name = "${var.client_name}-web1"
-   managed_by = "${var.managed_by}"
+    Name = "my-instance"
+   
   }
 }
