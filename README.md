@@ -18,15 +18,13 @@ Task 1 ‒ Containerization
 
       Build: npm install + npm run build
 
-      Test: npm test or Jest tests
+      Test: npm test 
 
       Docker Build: Build multi-stage image
 
-      Image Security Scan: Trivy scan
-
       Tag & Push: Push to DockerHub/ECR
 
-   Task 3 ‒ Infrastructure as Code
+Task 3 ‒ Infrastructure as Code
 Terraform Resources:
 
  --> VPC, Subnets, Security Groups
@@ -36,15 +34,15 @@ Terraform Resources:
  --> EC2 / ECS / EKS Cluster
 
  --> IAM Roles 
- Task 4 ‒ Kubernetes Deployment
+Task 4 ‒ Kubernetes Deployment
 
    --> kubectl apply -f deployment.yaml
    --> kubectl apply -f service.yaml
 
-   Task 5 ‒ Monitoring & Logging
+ Task 5 ‒ Monitoring & Logging
 
    Prometheus + Grafana or AWS CloudWatch
 
-   Task 6 ‒ Security Scan
+Task 6 ‒ Security Scan
 
 Use Trivy for container image vulnerability scanning.
