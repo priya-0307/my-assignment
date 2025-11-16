@@ -3,6 +3,7 @@ Task 1 ‒ Containerization
 --> Build and Tag Docker Image
 
     docker build -t myapp:latest .
+    docker run -p 3000:3000 myapp:latest
 -->Push Image to DockerHub / AWS ECR
     
      AWS ECR:
