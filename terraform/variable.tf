@@ -10,7 +10,7 @@ variable "region" {
     }
 
    variable client_name{
-    default = "flipkart"
+    default = "priya"
    }
 
    variable managed_by {
