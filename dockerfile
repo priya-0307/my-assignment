@@ -1,11 +1,7 @@
 # Stage 1: Build
 FROM node:18 AS build
 
-
 WORKDIR /app
-
-# Install build tools required for react-scripts
-RUN apk add --no-cache python3 make g++
 
 # Copy package.json and package-lock.json
 COPY package*.json ./
